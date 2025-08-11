@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/home/project/MYJOURNEY-BACKEND/logs/.b350cbce552ff698dcfc73f25f1bd5c3a44473d9-audit.json",
+    "files": [
+        {
+            "date": 1754915149862,
+            "name": "/home/project/MYJOURNEY-BACKEND/logs/error-2025-08-11.log",
+            "hash": "cd5c7b1856c9700e1b85d0d3fb0651db8e417d73e75a38193b72ea4378b7f08f"
+        }
+    ],
+    "hashType": "sha256"
+}
