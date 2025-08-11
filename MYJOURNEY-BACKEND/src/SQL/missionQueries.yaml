@@ -1,0 +1,24 @@
+getAllMissionsDashboard: |
+  SELECT DISTINCT 
+      DOS_SOCIETEGROUPE, 
+      DOS_SOCIETEGROUPELIBELLE, 
+      D.DOS_PGI, 
+      DOS_NOM, 
+      CASE 
+          WHEN MD_MISSION LIKE '2%' THEN 'Mission EC' 
+          WHEN MD_MISSION LIKE '37%' THEN 'Mission Paie' 
+          ELSE 'Mission Spé' 
+      END as MISSION 
+  FROM MISSION_DOSSIER MD 
+  LEFT JOIN DOSSIER D ON D.DOS_PGI = MD.DOS_PGI
+  LEFT JOIN SSIS_DOSSIER_USR_ID S ON S.DOS_PGI = D.DOS_PGI
+  LEFT JOIN UTILISATEUR U ON U.USR_ID = S.USR_ID
+  WHERE U.USR_MAIL = @Email
+    AND USR_ROLE not in ('favori')
+    AND D.DOS_ETAT = 'Ouvert' 
+    AND MD.MD_ETAT = 'ENC' 
+    ORDER BY DOS_SOCIETEGROUPE, D.DOS_PGI, CASE 
+      WHEN MD_MISSION LIKE '2%' THEN 'Mission EC' 
+      WHEN MD_MISSION LIKE '37%' THEN 'Mission Paie' 
+      ELSE 'Mission Spé' 
+    END

@@ -1,0 +1,50 @@
+2025-08-11 10:36:48 [INFO]: GET /api/missions/getAllMissionsDashboard/ - ::1
+2025-08-11 10:36:48 [WARN]: Route non trouvée: GET /api/missions/getAllMissionsDashboard/ - ::1
+2025-08-11 10:36:50 [INFO]: GET /api/missions/getAllMissionsDashboard/Alexandre.Poinot@fr.gt.com - ::1
+2025-08-11 10:36:50 [INFO]: Controller: Requête GET /getAllMissionsDashboard/Alexandre.Poinot@fr.gt.com
+2025-08-11 10:36:50 [INFO]: Service: Récupération de toutes les missions pour le tableau de bord de l'utilisateur Alexandre.Poinot@fr.gt.com
+2025-08-11 10:36:50 [INFO]: 3 utilisateurs récupérés
+2025-08-11 10:36:50 [INFO]: 3 missions récupérées
+2025-08-11 10:36:52 [INFO]: Pool de connexions SQL Server créé avec succès
+2025-08-11 10:36:52 [INFO]: Connexion à la base de données établie
+2025-08-11 10:36:52 [INFO]: Serveur démarré sur le port 3000
+2025-08-11 10:36:52 [INFO]: Environment: development
+2025-08-11 10:36:52 [INFO]: Health check: http://localhost:3000/health
+2025-08-11 10:36:52 [INFO]: GET /api/missions/getAllMissionsDashboard/ - ::ffff:127.0.0.1
+2025-08-11 10:36:52 [WARN]: Route non trouvée: GET /api/missions/getAllMissionsDashboard/ - ::ffff:127.0.0.1
+2025-08-11 10:36:52 [INFO]: GET /api/missions/getAllMissionsDashboard/Alexandre.Poinot@fr.gt.com - ::ffff:127.0.0.1
+2025-08-11 10:36:52 [INFO]: Controller: Requête GET /getAllMissionsDashboard/Alexandre.Poinot@fr.gt.com
+2025-08-11 10:36:52 [INFO]: Service: Récupération de toutes les missions pour le tableau de bord de l'utilisateur Alexandre.Poinot@fr.gt.com
+2025-08-11 10:36:54 [INFO]: Pool de connexions SQL Server créé avec succès
+2025-08-11 10:36:54 [INFO]: Connexion à la base de données établie
+2025-08-11 10:36:54 [INFO]: Serveur démarré sur le port 3000
+2025-08-11 10:36:54 [INFO]: Environment: development
+2025-08-11 10:36:54 [INFO]: Health check: http://localhost:3000/health
+2025-08-11 10:36:54 [INFO]: GET /api/missions/getAllMissionsDashboard/Alexandre.Poinot@fr.gt.com - ::ffff:127.0.0.1
+2025-08-11 10:36:54 [INFO]: Controller: Requête GET /getAllMissionsDashboard/Alexandre.Poinot@fr.gt.com
+2025-08-11 10:36:54 [INFO]: Service: Récupération de toutes les missions pour le tableau de bord de l'utilisateur Alexandre.Poinot@fr.gt.com
+2025-08-11 10:36:54 [INFO]: 3 utilisateurs récupérés
+2025-08-11 10:36:54 [INFO]: 3 missions récupérées
+2025-08-11 10:36:54 [INFO]: GET /api/missions/getAllMissionsDashboard/ - ::ffff:127.0.0.1
+2025-08-11 10:36:54 [WARN]: Route non trouvée: GET /api/missions/getAllMissionsDashboard/ - ::ffff:127.0.0.1
+2025-08-11 10:37:07 [INFO]: GET /api/missions/getAllMissionsDashboard/ - ::ffff:127.0.0.1
+2025-08-11 10:37:07 [WARN]: Route non trouvée: GET /api/missions/getAllMissionsDashboard/ - ::ffff:127.0.0.1
+2025-08-11 10:37:07 [INFO]: GET /api/missions/getAllMissionsDashboard/Alexandre.Poinot@fr.gt.com - ::ffff:127.0.0.1
+2025-08-11 10:37:07 [INFO]: Controller: Requête GET /getAllMissionsDashboard/Alexandre.Poinot@fr.gt.com
+2025-08-11 10:37:07 [INFO]: Service: Récupération de toutes les missions pour le tableau de bord de l'utilisateur Alexandre.Poinot@fr.gt.com
+2025-08-11 10:37:07 [INFO]: 3 utilisateurs récupérés
+2025-08-11 10:37:07 [INFO]: 3 missions récupérées
+2025-08-11 10:37:15 [INFO]: GET /api/missions/getAllMissionsDashboard/ - ::1
+2025-08-11 10:37:15 [WARN]: Route non trouvée: GET /api/missions/getAllMissionsDashboard/ - ::1
+2025-08-11 10:37:15 [INFO]: GET /api/missions/getAllMissionsDashboard/Alexandre.Poinot@fr.gt.com - ::1
+2025-08-11 10:37:15 [INFO]: Controller: Requête GET /getAllMissionsDashboard/Alexandre.Poinot@fr.gt.com
+2025-08-11 10:37:15 [INFO]: Service: Récupération de toutes les missions pour le tableau de bord de l'utilisateur Alexandre.Poinot@fr.gt.com
+2025-08-11 10:37:16 [INFO]: 3 utilisateurs récupérés
+2025-08-11 10:37:16 [INFO]: 3 missions récupérées
+2025-08-11 10:37:18 [INFO]: GET /api/missions/getAllMissionsDashboard/ - ::1
+2025-08-11 10:37:18 [WARN]: Route non trouvée: GET /api/missions/getAllMissionsDashboard/ - ::1
+2025-08-11 10:37:18 [INFO]: GET /api/missions/getAllMissionsDashboard/Alexandre.Poinot@fr.gt.com - ::1
+2025-08-11 10:37:18 [INFO]: Controller: Requête GET /getAllMissionsDashboard/Alexandre.Poinot@fr.gt.com
+2025-08-11 10:37:18 [INFO]: Service: Récupération de toutes les missions pour le tableau de bord de l'utilisateur Alexandre.Poinot@fr.gt.com
+2025-08-11 10:37:18 [INFO]: 3 utilisateurs récupérés
+2025-08-11 10:37:18 [INFO]: 3 missions récupérées

@@ -1,0 +1,30 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "C:\\Users\\alexandre.poinot\\OneDrive - Grant Thornton France\\Bureau\\api-nodejs\\logs\\.e2b5c72959082b81da44199bb78c24c6ec21bcba-audit.json",
+    "files": [
+        {
+            "date": 1754395710954,
+            "name": "C:\\Users\\alexandre.poinot\\OneDrive - Grant Thornton France\\Bureau\\api-nodejs\\logs\\application-2025-08-05.log",
+            "hash": "d7cb92c3b657cae5e72dd1c06179ce6fbc42941958ff88f43eac3bcb2745c657"
+        },
+        {
+            "date": 1754465966076,
+            "name": "C:\\Users\\alexandre.poinot\\OneDrive - Grant Thornton France\\Bureau\\api-nodejs\\logs\\application-2025-08-06.log",
+            "hash": "fa690fbc8d2d3fd1a4934ba10cc0766adb7fecf3b47ada5cec35d1be1d4980a4"
+        },
+        {
+            "date": 1754553074372,
+            "name": "C:\\Users\\alexandre.poinot\\OneDrive - Grant Thornton France\\Bureau\\api-nodejs\\logs\\application-2025-08-07.log",
+            "hash": "31a29247ea6ef301102f8831cbf65ea4ef90b597109849d898233d14dc6d30d0"
+        },
+        {
+            "date": 1754640662970,
+            "name": "C:\\Users\\alexandre.poinot\\OneDrive - Grant Thornton France\\Bureau\\api-nodejs\\logs\\application-2025-08-08.log",
+            "hash": "64a780b91a7f64043bff3ab0242668bbfefdd5b302ccd75272f653c55dad2863"
+        }
+    ],
+    "hashType": "sha256"
+}

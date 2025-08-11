@@ -1,0 +1,20 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "C:\\Users\\alexandre.poinot\\visual-studio-workplace\\MYJOURNEY-BACKEND\\logs\\.3cce39b647cd782f95ee8df99329f06b10ff56c4-audit.json",
+    "files": [
+        {
+            "date": 1754663601926,
+            "name": "C:\\Users\\alexandre.poinot\\visual-studio-workplace\\MYJOURNEY-BACKEND\\logs\\error-2025-08-08.log",
+            "hash": "77abac529697e259775a4d7375b367cac61396f34589b344d8ff8c3d192d0be6"
+        },
+        {
+            "date": 1754901411605,
+            "name": "C:\\Users\\alexandre.poinot\\visual-studio-workplace\\MYJOURNEY-BACKEND\\logs\\error-2025-08-11.log",
+            "hash": "9d8c4477cbff1dd0907b76326a8b46ce687d4249ba96eccfbfa2b5cfabfc51d8"
+        }
+    ],
+    "hashType": "sha256"
+}

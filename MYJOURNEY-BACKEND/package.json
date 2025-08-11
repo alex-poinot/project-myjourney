@@ -1,0 +1,30 @@
+{
+  "name": "nodejs-rest-api",
+  "version": "1.0.0",
+  "description": "API REST professionnelle avec Node.js, Express et SQL Server",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "rest-api",
+    "sql-server"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "js-yaml": "^4.1.0",
+    "mssql": "^11.0.1",
+    "winston": "^3.17.0",
+    "winston-daily-rotate-file": "^5.0.0"
+  }
+}
