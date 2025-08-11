@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { AuthService, UserProfile } from '../../services/auth.service';
 
 export interface TabGroup {
@@ -13,7 +14,7 @@ export interface TabGroup {
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   template: `
     <nav class="navbar-horizontal">
       <!-- Logo et titre -->
