@@ -1,12 +1,8 @@
 import { Configuration, LogLevel } from '@azure/msal-browser';
+import { environment } from '../environments/environment';
 
 export const msalConfig: Configuration = {
-  auth: {
-    clientId: '634d3680-46b5-48e4-bdae-b7c6ed6b218a', // Remplacez par votre Client ID Azure AD
-    authority: 'https://login.microsoftonline.com/e1029da6-a2e7-449b-b816-9dd31f7c2d83', // Remplacez par votre Tenant ID
-    redirectUri: 'http://localhost:4200/',
-    postLogoutRedirectUri: 'http://localhost:4200/'
-  },
+  auth: environment.msalConfig,
   cache: {
     cacheLocation: 'sessionStorage',
     storeAuthStateInCookie: false
@@ -14,9 +10,14 @@ export const msalConfig: Configuration = {
   system: {
     loggerOptions: {
       loggerCallback: (level: LogLevel, message: string) => {
-        console.log(message);
+        if (environment.logLevel === 'debug' || 
+            (environment.logLevel === 'info' && level >= LogLevel.Info) ||
+            (environment.logLevel === 'error' && level >= LogLevel.Error)) {
+          console.log(message);
+        }
       },
-      logLevel: LogLevel.Info,
+      logLevel: environment.logLevel === 'debug' ? LogLevel.Verbose :
+                environment.logLevel === 'info' ? LogLevel.Info : LogLevel.Error,
       piiLoggingEnabled: false
     }
   }

@@ -2,7 +2,11 @@ import sql from 'mssql';
 import dotenv from 'dotenv';
 import logger from '../utils/logger.js';
 
-dotenv.config();
+// Charger le bon fichier .env selon l'environnement
+const envFile = process.env.NODE_ENV === 'production' ? '.env.production' :
+                process.env.NODE_ENV === 'staging' ? '.env.staging' : '.env';
+
+dotenv.config({ path: envFile });
 
 const config = {
   server: process.env.DB_HOST,
@@ -14,12 +18,12 @@ const config = {
     encrypt: false, // Utiliser true si vous utilisez Azure
     trustServerCertificate: true, // Utiliser true pour les certificats auto-signés
     enableArithAbort: true,
-    requestTimeout: 30000,
-    connectionTimeout: 30000
+    requestTimeout: parseInt(process.env.DB_REQUEST_TIMEOUT) || 30000,
+    connectionTimeout: parseInt(process.env.DB_CONNECTION_TIMEOUT) || 30000
   },
   pool: {
-    max: 10,
-    min: 0,
+    max: parseInt(process.env.DB_POOL_MAX) || 10,
+    min: parseInt(process.env.DB_POOL_MIN) || 0,
     idleTimeoutMillis: 30000
   }
 };

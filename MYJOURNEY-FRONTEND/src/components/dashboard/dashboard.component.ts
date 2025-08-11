@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AuthService, UserProfile } from '../../services/auth.service';
+import { environment } from '../../environments/environment';
 
 interface MissionData {
   numeroGroupe: string;
@@ -1075,7 +1076,7 @@ export class DashboardComponent implements OnInit {
 
   initializeData(): void {
     // Récupérer les données des missions depuis l'API
-    this.http.get<{ success: boolean; data: MissionData[]; count: number; timestamp: string }>('http://localhost:3000/api/missions/getAllMissionsDashboard/' + this.userEmail)
+    this.http.get<{ success: boolean; data: MissionData[]; count: number; timestamp: string }>(`${environment.apiUrl}/missions/getAllMissionsDashboard/${this.userEmail}`)
       .subscribe((response) => {
         let data = response.data;
         

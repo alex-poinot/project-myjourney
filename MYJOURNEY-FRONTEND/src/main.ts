@@ -7,6 +7,7 @@ import { MSAL_INSTANCE, MsalService, MsalBroadcastService } from '@azure/msal-an
 import { PublicClientApplication } from '@azure/msal-browser';
 import { msalConfig } from './auth/auth.config';
 import { AuthService } from './services/auth.service';
+import { environment } from './environments/environment';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NogEditorComponent } from './components/nog-editor/nog-editor.component';
@@ -42,6 +43,9 @@ export function initializeMsal(msalService: MsalService): () => Promise<void> {
         [activeTab]="currentTab"
         (tabChange)="onTabSelected($event)">
       </app-navbar>
+      <div class="environment-banner" *ngIf="!environment.production">
+        {{ environment.appName }}
+      </div>
       <main class="main-content">
         <app-dashboard *ngIf="currentTab === 'dashboard'"></app-dashboard>
         <app-nog-editor *ngIf="currentTab === 'NOG'"></app-nog-editor>
@@ -57,10 +61,24 @@ export function initializeMsal(msalService: MsalService): () => Promise<void> {
       min-height: calc(100vh - 70px);
     }
     
+    .environment-banner {
+      background: {{ environment.staging ? '#f59e0b' : '#10b981' }};
+      color: white;
+      text-align: center;
+      padding: 4px 8px;
+      font-size: 12px;
+      font-weight: 600;
+      position: fixed;
+      top: 70px;
+      left: 0;
+      right: 0;
+      z-index: 99;
+    }
+    
     .main-content {
-      margin-top: 70px;
+      margin-top: {{ environment.production ? '70px' : '94px' }};
       background: #f8fafc;
-      min-height: calc(100vh - 70px);
+      min-height: calc(100vh - {{ environment.production ? '70px' : '94px' }});
     }
     
     .coming-soon {

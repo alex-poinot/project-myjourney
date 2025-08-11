@@ -13,7 +13,10 @@ import missionRoutes from './src/routes/missionRoutes.js';
 import { errorHandler, notFoundHandler } from './src/utils/errorHandlers.js';
 
 // Configuration des variables d'environnement
-dotenv.config();
+const envFile = process.env.NODE_ENV === 'production' ? '.env.production' :
+                process.env.NODE_ENV === 'staging' ? '.env.staging' : '.env';
+
+dotenv.config({ path: envFile });
 
 // Obtenir le répertoire courant pour ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -30,7 +33,10 @@ const PORT = process.env.PORT || 3000;
 
 // Middlewares de sécurité
 app.use(helmet());
-app.use(cors());
+app.use(cors({
+  origin: process.env.CORS_ORIGIN || '*',
+  credentials: true
+}));
 
 // Middlewares pour parser le JSON
 app.use(express.json({ limit: '10mb' }));
