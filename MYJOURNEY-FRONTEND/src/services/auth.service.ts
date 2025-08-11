@@ -12,6 +12,8 @@ export interface UserProfile {
   jobTitle?: string;
   department?: string;
   photoUrl?: string;
+  isImpersonated?: boolean;
+  originalUser?: string;
 }
 
 @Injectable({
@@ -23,6 +25,12 @@ export class AuthService {
 
   private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
   public isAuthenticated$ = this.isAuthenticatedSubject.asObservable();
+
+  private originalUserProfile: UserProfile | null = null;
+  private readonly AUTHORIZED_IMPERSONATORS = [
+    'alexandre.poinot@fr.gt.com',
+    'romain.tetillon@fr.gt.com'
+  ];
 
   constructor(
     private msalService: MsalService,
@@ -61,6 +69,7 @@ export class AuthService {
     this.msalService.logout();
     this.isAuthenticatedSubject.next(false);
     this.userProfileSubject.next(null);
+    this.originalUserProfile = null;
   }
 
   private async loadUserProfile(): Promise<void> {
@@ -105,10 +114,61 @@ export class AuthService {
         photoUrl: photoUrl
       };
 
+      // Sauvegarder le profil original si ce n'est pas déjà fait
+      if (!this.originalUserProfile) {
+        this.originalUserProfile = { ...userProfile };
+      }
+
       this.userProfileSubject.next(userProfile);
     } catch (error) {
       console.error('Erreur lors du chargement du profil:', error);
     }
+  }
+
+  canImpersonate(): boolean {
+    const currentUser = this.originalUserProfile || this.userProfileSubject.value;
+    return currentUser ? this.AUTHORIZED_IMPERSONATORS.includes(currentUser.mail.toLowerCase()) : false;
+  }
+
+  async impersonateUser(targetEmail: string): Promise<boolean> {
+    if (!this.canImpersonate()) {
+      throw new Error('Vous n\'êtes pas autorisé à utiliser cette fonctionnalité');
+    }
+
+    try {
+      // Créer un profil d'impersonnification basique
+      const impersonatedProfile: UserProfile = {
+        displayName: targetEmail.split('@')[0].replace('.', ' ').replace(/\b\w/g, l => l.toUpperCase()),
+        mail: targetEmail,
+        userPrincipalName: targetEmail,
+        jobTitle: 'Utilisateur impersonné',
+        department: 'N/A',
+        photoUrl: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=100',
+        isImpersonated: true,
+        originalUser: this.originalUserProfile?.mail || ''
+      };
+
+      this.userProfileSubject.next(impersonatedProfile);
+      return true;
+    } catch (error) {
+      console.error('Erreur lors de l\'impersonnification:', error);
+      return false;
+    }
+  }
+
+  stopImpersonation(): void {
+    if (this.originalUserProfile) {
+      this.userProfileSubject.next({ ...this.originalUserProfile });
+    }
+  }
+
+  isImpersonating(): boolean {
+    const currentUser = this.userProfileSubject.value;
+    return currentUser?.isImpersonated || false;
+  }
+
+  getOriginalUser(): UserProfile | null {
+    return this.originalUserProfile;
   }
 
   getCurrentUser(): UserProfile | null {
