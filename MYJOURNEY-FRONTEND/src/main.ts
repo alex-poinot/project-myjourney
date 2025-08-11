@@ -2,32 +2,12 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { provideHttpClient } from '@angular/common/http';
-import { APP_INITIALIZER } from '@angular/core';
-import { MSAL_INSTANCE, MsalService, MsalBroadcastService } from '@azure/msal-angular';
-import { PublicClientApplication } from '@azure/msal-browser';
-import { msalConfig } from './auth/auth.config';
 import { AuthService } from './services/auth.service';
 import { environment } from './environments/environment';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NogEditorComponent } from './components/nog-editor/nog-editor.component';
 import { LoginComponent } from './components/login/login.component';
-
-export function MSALInstanceFactory(): PublicClientApplication {
-  return new PublicClientApplication(msalConfig);
-}
-
-export function initializeMsal(msalService: MsalService): () => Promise<void> {
-  return () => {
-    return new Promise<void>((resolve) => {
-      msalService.instance.initialize().then(() => {
-        msalService.handleRedirectObservable().subscribe(() => {
-          resolve();
-        });
-      });
-    });
-  };
-}
 
 @Component({
   selector: 'app-root',
@@ -121,18 +101,6 @@ export class AppComponent {
 bootstrapApplication(AppComponent, {
   providers: [
     provideHttpClient(),
-    {
-      provide: MSAL_INSTANCE,
-      useFactory: MSALInstanceFactory
-    },
-    MsalService,
-    MsalBroadcastService,
-    {
-      provide: APP_INITIALIZER,
-      useFactory: initializeMsal,
-      deps: [MsalService],
-      multi: true
-    },
     AuthService
   ]
 });
